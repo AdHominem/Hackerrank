@@ -7,6 +7,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class HackerrankTest {
 
@@ -61,6 +62,29 @@ class HackerrankTest {
                         "<legal><a>Nice!</a>Illegal</legal>"
                 )
         );
+    }
+
+    @Test
+    void testJavaExceptionHandllingZero() {
+        Exception exception = assertThrows(Exception.class, () -> JavaExceptionHandling.power(0, 0));
+        assertEquals(exception.getMessage(), "n and p should not be zero.");
+    }
+
+    @Test
+    void testJavaExceptionHandllingNeg1() {
+        Exception exception = assertThrows(Exception.class, () -> JavaExceptionHandling.power(-1, 1));
+        assertEquals(exception.getMessage(), "n or p should not be negative.");
+    }
+
+    @Test
+    void testJavaExceptionHandllingNeg2() {
+        Exception exception = assertThrows(Exception.class, () -> JavaExceptionHandling.power(1, -1));
+        assertEquals(exception.getMessage(), "n or p should not be negative.");
+    }
+
+    @Test
+    void testJavaExceptionHandlling() throws Exception {
+        assertEquals(32, JavaExceptionHandling.power(2, 5));
     }
 
 }
