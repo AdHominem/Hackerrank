@@ -5,6 +5,10 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -85,6 +89,17 @@ class HackerrankTest {
     @Test
     void testJavaExceptionHandlling() throws Exception {
         assertEquals(32, JavaExceptionHandling.power(2, 5));
+    }
+
+    @Test
+    void testJavaIterator() {
+        List list = Arrays.asList(42, 10, "###", "Hello", "Java");
+        Iterator it = JavaIterator.func(list);
+        while(it.hasNext()){
+            Object element = it.next();
+            System.out.println((String) element);
+        }
+        assertEquals("Hello\nJava\n", outContent.toString());
     }
 
 }
