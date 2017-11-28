@@ -102,4 +102,14 @@ class HackerrankTest {
         assertEquals("Hello\nJava\n", outContent.toString());
     }
 
+    @Test
+    void testVarargsSimpleAddition() {
+        Add additor = new Add();
+        additor.add(1, 2);
+        additor.add(1, 2, 3);
+        additor.add(1, 2, 3, 4);
+        additor.add(1, 2, 3, 4, 5);
+        assertEquals("1+2=3\n1+2+3=6\n1+2+3+4=10\n1+2+3+4+5=15\n", outContent.toString());
+    }
+
 }
