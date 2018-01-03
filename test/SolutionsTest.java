@@ -2,6 +2,9 @@ import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
 import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
@@ -36,5 +39,36 @@ public class SolutionsTest {
         int target = 8;
         int[] solution = {0, 1};
         assertArrayEquals(solution, Solutions.ArraysSolutions.sumTwo(array, target));
+    }
+
+    @Test
+    void threeSumTest() {
+        int[] array = {1, -4, 0, 4, -1};
+        List<List<Integer>> solution = Arrays.asList(
+                Arrays.asList(-1, 0, 1),
+                Arrays.asList(-4, 0, 4)
+        );
+        assertArrayEquals(solution.stream().flatMap(Collection::stream).toArray(),
+                Solutions.ArraysSolutions.threeSum(array).stream().flatMap(Collection::stream).toArray());
+    }
+
+    @Test
+    void threeSumTestDouble() {
+        int[] array = {0, 0, 0};
+        List<List<Integer>> solution = Arrays.asList(Arrays.asList(0, 0, 0));
+        assertArrayEquals(solution.stream().flatMap(Collection::stream).toArray(),
+                Solutions.ArraysSolutions.threeSum(array).stream().flatMap(Collection::stream).toArray());
+    }
+
+    @Test
+    void threeSumTestDouble2() {
+        int[] array = {1, -4, 0, 4, -1, 0, 0};
+        List<List<Integer>> solution = Arrays.asList(
+                Arrays.asList(-1, 0, 1),
+                Arrays.asList(-4, 0, 4),
+                Arrays.asList(0, 0, 0)
+        );
+        assertArrayEquals(solution.stream().flatMap(Collection::stream).toArray(),
+                Solutions.ArraysSolutions.threeSum(array).stream().flatMap(Collection::stream).toArray());
     }
 }
